@@ -47,20 +47,4 @@ public class Rueda {
         this.diametro = diametro;
     }
 
-
-    public int comprobarDimensiones() {
-        if (getDiametro() > 1.4) {
-            if (getGrosor() < 0.4) {
-                return 4;
-            }
-            return 1;
-        } else if (getDiametro() <= 1.4 && getDiametro() > 0.8) {
-            if (getGrosor() < 0.25) {
-                return 5;
-            }
-            return 2;
-        } else {
-            return 3;
-        }
-    }
 }

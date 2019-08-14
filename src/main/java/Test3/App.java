@@ -10,11 +10,11 @@ public class App {
         Scanner teclado = new Scanner(System.in);
         String tipo = "normal";
         String marca = "Michelin";
-        double grosor = 0.5;
-        double diametro = 0.1;
+        double grosor = Math.random()*0.6;
+        double diametro = Math.random()*2;
 
         Rueda primera = new Rueda(tipo, marca, grosor, diametro);
-        switch (primera.comprobarDimensiones()){
+        switch (comprobarDimensiones(primera)){
             case 1 : {
                 System.out.println("La rueda es para un vehiculo grande");
                 break;
@@ -46,4 +46,22 @@ public class App {
         String test = gson.toJson(primera);
         System.out.println(test);
     }
+
+    public static int comprobarDimensiones(Rueda r) {
+        if (r.getDiametro() > 1.4) {
+            if (r.getGrosor() < 0.4) {
+                return 4;
+            }
+            return 1;
+        } else if (r.getDiametro() <= 1.4 && r.getDiametro() > 0.8) {
+            if (r.getGrosor() < 0.25) {
+                return 5;
+            }
+            return 2;
+        } else {
+            return 3;
+        }
+    }
 }
+
+
