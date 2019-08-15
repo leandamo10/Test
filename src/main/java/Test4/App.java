@@ -65,6 +65,7 @@ public class App {
         Vendedor vendedor = new Vendedor(nombre, apellido, dni, direccion, telefono, sueldo);
         Vendedor vendedor2 = new Vendedor(nombrev2, apellidov2, dniv2, direccionv2, telefonov2, sueldov2);
         Coche coche = new Coche(coche1marca, coche1modelo, coche1matriz);
+        Coche cocheNull = new Coche("No", "tiene", "coche");
 
         // asigno todos los parametros al jefe
         jefeDeZona.setAntiguedad(antiguedad1);
@@ -75,15 +76,16 @@ public class App {
 
         // asigno todos los parametros a los vendedores
         vendedor.setAntiguedad(antiguedad);
-        vendedor.setSupervisor((JefeDeZona)jefeDeZona);
+        vendedor.setSupervisor((JefeDeZona) jefeDeZona);
         vendedor.aumentarSalario(aumento);
         vendedor.setCelular(celular);
         vendedor.setArea(area);
         vendedor2.setAntiguedad(antiguedadv2);
-        vendedor2.setSupervisor((JefeDeZona)jefeDeZona);
+        vendedor2.setSupervisor((JefeDeZona) jefeDeZona);
         vendedor2.aumentarSalario(aumento);
         vendedor2.setCelular(celularv2);
         vendedor2.setArea(areav2);
+        vendedor2.setCoche(cocheNull);
 
 
         // creo clientes
@@ -98,7 +100,7 @@ public class App {
 
         // asigno todos los parametros al secretario
         secretario.setAntiguedad(antiguedad2);
-        secretario.setSupervisor((JefeDeZona)jefeDeZona);
+        secretario.setSupervisor((JefeDeZona) jefeDeZona);
         secretario.aumentarSalario(aumento);
         secretario.setDespacho(despacho2);
         secretario.setFax(fax2);
@@ -118,11 +120,8 @@ public class App {
 
         // aca uso un auto ya existente y se lo asigno al vendedor
         vendedor.cambiarCoche(coche);
-        System.out.println(vendedor.getCoche().toString());
-      // System.out.println(vendedor2.getCoche().toString());
-
-
-
+        System.out.println(vendedor.getCoche());
+        System.out.println(vendedor2.getCoche());
 
         // imprimo cada uno de los empleados
         System.out.println(jefeDeZona.toString(jefeDeZona));

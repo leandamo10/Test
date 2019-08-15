@@ -4,6 +4,7 @@ package Test4;
 public class EmpleadoConAuto extends Empleado {
 
     private Coche coche;
+    public Coche cocheNull = new Coche("no ", "tiene ", "coche");
 
     public EmpleadoConAuto() {
     }

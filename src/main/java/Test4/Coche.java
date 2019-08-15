@@ -15,7 +15,6 @@ public class Coche {
     public Coche() {
     }
 
-
     public String getMarca() {
         return marca;
     }
@@ -41,8 +40,9 @@ public class Coche {
     }
 
     public String toString() {
-        return (getMarca() + " " + getModelo() + " Patente: " + getMatriz());
+        return (getMarca() + " " + getModelo() + " " + getMatriz());
     }
+
 
 
 }
