@@ -33,12 +33,11 @@ public class Secretario extends Empleado {
 
 
     @Override
-    public String toString(Empleado e) {
+    public String toString(Empleado empleado) {
         return ("Nombre: " + getNombre() + " " + getApellido() + "\nCargo: " + getClass().getSimpleName() + "\nDNI: " + getDni() + "\nDireccion: " + getDireccion() + "\nAntiguedad: "
                 + getAntiguedad() + "\nTelefono: " + getTelefono() + "\nFax: " + getFax() +"\nSueldo: " + getSueldo() + "\nSupervisor: " + getSupervisor() + "\nDespacho: "
                 + getDespacho() +  "\n");
     }
-
 
 
 }

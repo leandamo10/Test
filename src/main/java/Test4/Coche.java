@@ -5,11 +5,16 @@ public class Coche {
     private String modelo;
     private String matriz;
 
+
     public Coche(String marca, String modelo, String matriz) {
         this.marca = marca;
         this.modelo = modelo;
         this.matriz = matriz;
     }
+
+    public Coche() {
+    }
+
 
     public String getMarca() {
         return marca;
@@ -35,7 +40,9 @@ public class Coche {
         this.matriz = matriz;
     }
 
-    public String toString(Coche e) {
-        return ("Marca: " + getMarca() + " " + getModelo() + " Matriz: " + getMatriz());
+    public String toString() {
+        return (getMarca() + " " + getModelo() + " Patente: " + getMatriz());
     }
+
+
 }

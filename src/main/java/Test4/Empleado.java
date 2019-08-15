@@ -1,6 +1,6 @@
 package Test4;
 
-public abstract class Empleado  {
+public abstract class Empleado {
 
     private String nombre;
     private String apellido;
@@ -9,9 +9,7 @@ public abstract class Empleado  {
     private int antiguedad;
     private String telefono;
     private double sueldo;
-    private String supervisor;
-
-
+    private Empleado supervisor;
 
     public Empleado() {
     }
@@ -25,10 +23,18 @@ public abstract class Empleado  {
         this.sueldo = sueldo;
     }
 
+    public Empleado(String nombre, String apellido) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+    }
+    @Override
+    public String toString() {
+        return (getNombre() + " " + getApellido());
+    }
 
-    public String toString(Empleado e) {
-        return ("Nombre: " + nombre + " " + apellido + "\nDNI: " + dni + "\nDireccion: " + direccion + "\nAntiguedad: "
-                + antiguedad + "\nTelefono: " + telefono + "\nSueldo: " + sueldo + "\nSupervisor: " + supervisor + "\n");
+
+    public String toString(Empleado empleado) {
+        return (nombre + " " + apellido);
     }
 
     public String getNombre() {
@@ -87,19 +93,23 @@ public abstract class Empleado  {
         this.sueldo = sueldo;
     }
 
-    public String getSupervisor() {
+    public Empleado getSupervisor() {
         return supervisor;
     }
 
-    public void cambiarSupervisor(Empleado E) {
-        supervisor = E.getApellido() + " " + E.getNombre();
+    public void setSupervisor(JefeDeZona jefeDeZona) {
+        supervisor = jefeDeZona;
+        this.supervisor = supervisor;
+    }
+
+    public void cambiarSupervisor(JefeDeZona jefeDeZona) {
+        supervisor = jefeDeZona;
         this.supervisor = supervisor;
     }
 
     public void aumentarSalario(double aumento) {
         sueldo = aumento + sueldo;
         setSueldo(sueldo);
-
     }
 }
 

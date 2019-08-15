@@ -60,7 +60,7 @@ public class App {
 
 
         // creo el jefe, el secretario, vendedores y un coche.
-        JefeDeZona jefeDeZona = new JefeDeZona(nombre1, apellido1, dni1, direccion1, antiguedad1, telefono1, sueldo1);
+        Empleado jefeDeZona = new JefeDeZona(nombre1, apellido1, dni1, direccion1, antiguedad1, telefono1, sueldo1);
         Secretario secretario = new Secretario(nombre2, apellido2, dni2, direccion2, telefono2, sueldo2);
         Vendedor vendedor = new Vendedor(nombre, apellido, dni, direccion, telefono, sueldo);
         Vendedor vendedor2 = new Vendedor(nombrev2, apellidov2, dniv2, direccionv2, telefonov2, sueldov2);
@@ -69,21 +69,22 @@ public class App {
         // asigno todos los parametros al jefe
         jefeDeZona.setAntiguedad(antiguedad1);
         jefeDeZona.aumentarSalario(aumento);
-        jefeDeZona.setSecretario(secretario);
-        jefeDeZona.setDespacho(despacho1);
-        jefeDeZona.setCoche(coche);
+        ((JefeDeZona) jefeDeZona).setSecretario(secretario);
+        ((JefeDeZona) jefeDeZona).setDespacho(despacho1);
+        ((JefeDeZona) jefeDeZona).setCoche(coche);
 
         // asigno todos los parametros a los vendedores
         vendedor.setAntiguedad(antiguedad);
-        vendedor.cambiarSupervisor(jefeDeZona);
+        vendedor.setSupervisor((JefeDeZona)jefeDeZona);
         vendedor.aumentarSalario(aumento);
         vendedor.setCelular(celular);
         vendedor.setArea(area);
         vendedor2.setAntiguedad(antiguedadv2);
-        vendedor2.cambiarSupervisor(jefeDeZona);
+        vendedor2.setSupervisor((JefeDeZona)jefeDeZona);
         vendedor2.aumentarSalario(aumento);
         vendedor2.setCelular(celularv2);
         vendedor2.setArea(areav2);
+
 
         // creo clientes
         vendedor.crearCliente(clienteN, clienteA, clienteC);
@@ -91,19 +92,19 @@ public class App {
         vendedor2.crearCliente(cliente3N, cliente3A, cliente3C);
 
         // asigno el vendedor creado a un jefe
-        jefeDeZona.agregarVendedor(vendedor);
-        jefeDeZona.agregarVendedor(vendedor2);
+        ((JefeDeZona) jefeDeZona).agregarVendedor(vendedor);
+        ((JefeDeZona) jefeDeZona).agregarVendedor(vendedor2);
 
 
         // asigno todos los parametros al secretario
         secretario.setAntiguedad(antiguedad2);
-        secretario.cambiarSupervisor(jefeDeZona);
+        secretario.setSupervisor((JefeDeZona)jefeDeZona);
         secretario.aumentarSalario(aumento);
         secretario.setDespacho(despacho2);
         secretario.setFax(fax2);
 
         // imprimo el auto del jefe
-        System.out.println(jefeDeZona.getCoche());
+        System.out.println(((JefeDeZona) jefeDeZona).getCoche());
 
         // cambio el auto del jefe y lo imprimo
 
@@ -111,13 +112,16 @@ public class App {
         String coche2modelo = "Uno";
         String coche2matriz = "XAT411";
         Coche coche1 = new Coche(coche2marca, coche2modelo, coche2matriz);
-        jefeDeZona.setCoche(coche1);
-        System.out.println(jefeDeZona.getCoche());
+        ((JefeDeZona) jefeDeZona).setCoche(coche1);
+        System.out.println(((JefeDeZona) jefeDeZona).getCoche().toString());
 
 
         // aca uso un auto ya existente y se lo asigno al vendedor
         vendedor.cambiarCoche(coche);
-        System.out.println(vendedor.getCoche());
+        System.out.println(vendedor.getCoche().toString());
+      // System.out.println(vendedor2.getCoche().toString());
+
+
 
 
         // imprimo cada uno de los empleados
@@ -127,7 +131,7 @@ public class App {
         System.out.println(secretario.toString(secretario));
 
         // imprimo empleados a cargo del jefe
-        jefeDeZona.imprimirListaVendedores();
+        ((JefeDeZona) jefeDeZona).imprimirListaVendedores();
 
         // imprimo las lista de clientes y
         vendedor.imprimirListaClientes();

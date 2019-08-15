@@ -3,7 +3,7 @@ package Test4;
 
 public class EmpleadoConAuto extends Empleado {
 
-    private String coche;
+    private Coche coche;
 
     public EmpleadoConAuto() {
     }
@@ -12,18 +12,21 @@ public class EmpleadoConAuto extends Empleado {
         super(nombre, apellido, dni, direccion, telefono, sueldo);
     }
 
-    public String getCoche() {
+    public EmpleadoConAuto(String nombre, String apellido, int dni, String direccion, String telefono, double sueldo, Coche coche) {
+        super(nombre, apellido, dni, direccion, telefono, sueldo);
+    }
+
+    public Coche getCoche() {
         return coche;
     }
 
-    public void setCoche(Coche C) {
-        coche = C.getMarca() + " " + C.getModelo() + " Matriz " + C.getMatriz();
+    public void setCoche(Coche coche) {
         this.coche = coche;
     }
 
 
-    public String cambiarCoche(Coche B) {
-        coche = B.getMarca() + " " + B.getModelo() + " Matriz " + B.getMatriz();
+    public Coche cambiarCoche(Coche coche1) {
+        coche = coche1;
         return coche;
     }
 }
