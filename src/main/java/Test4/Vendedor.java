@@ -1,6 +1,5 @@
 package Test4;
 
-
 import java.util.ArrayList;
 
 public class Vendedor extends EmpleadoConAuto {
@@ -15,6 +14,7 @@ public class Vendedor extends EmpleadoConAuto {
         super(nombre, apellido, dni, direccion, telefono, sueldo, coche);
         this.celular = celular;
         this.area = area;
+        setSueldo(getSueldo()+comisiones);
     }
 
     public Vendedor(String nombre, String apellido, int dni, String direccion, String telefono, double sueldo) {

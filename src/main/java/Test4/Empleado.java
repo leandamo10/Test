@@ -9,7 +9,7 @@ public abstract class Empleado {
     private int antiguedad;
     private String telefono;
     private double sueldo;
-    private Empleado supervisor;
+    private String supervisor;
 
     public Empleado() {
     }
@@ -93,17 +93,12 @@ public abstract class Empleado {
         this.sueldo = sueldo;
     }
 
-    public Empleado getSupervisor() {
+    public String getSupervisor() {
         return supervisor;
     }
 
-    public void setSupervisor(JefeDeZona jefeDeZona) {
-        supervisor = jefeDeZona;
-        this.supervisor = supervisor;
-    }
-
-    public void cambiarSupervisor(JefeDeZona jefeDeZona) {
-        supervisor = jefeDeZona;
+    public void setSupervisor(Empleado empleado) {
+        supervisor = empleado.getNombre() + " " + empleado.getApellido();
         this.supervisor = supervisor;
     }
 

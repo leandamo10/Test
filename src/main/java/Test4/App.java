@@ -1,5 +1,7 @@
 package Test4;
 
+import com.google.gson.Gson;
+
 public class App {
     public static void main(String[] args) {
 
@@ -76,12 +78,12 @@ public class App {
 
         // asigno todos los parametros a los vendedores
         vendedor.setAntiguedad(antiguedad);
-        vendedor.setSupervisor((JefeDeZona) jefeDeZona);
+        vendedor.setSupervisor(jefeDeZona);
         vendedor.aumentarSalario(aumento);
         vendedor.setCelular(celular);
         vendedor.setArea(area);
         vendedor2.setAntiguedad(antiguedadv2);
-        vendedor2.setSupervisor((JefeDeZona) jefeDeZona);
+        vendedor2.setSupervisor(jefeDeZona);
         vendedor2.aumentarSalario(aumento);
         vendedor2.setCelular(celularv2);
         vendedor2.setArea(areav2);
@@ -132,13 +134,24 @@ public class App {
         // imprimo empleados a cargo del jefe
         ((JefeDeZona) jefeDeZona).imprimirListaVendedores();
 
-        // imprimo las lista de clientes y
+        // imprimo las lista de clientes
         vendedor.imprimirListaClientes();
 
         // borro un cliente
         vendedor.borrarCliente(cliente2C);
         vendedor.imprimirListaClientes();
         vendedor2.imprimirListaClientes();
+
+
+        Gson gson = new Gson();
+        String test = gson.toJson(vendedor);
+        String test1 = gson.toJson(vendedor2);
+        String test2 = gson.toJson(secretario);
+        String test3 = gson.toJson(jefeDeZona);
+        System.out.println(test);
+        System.out.println(test1);
+        System.out.println(test2);
+        System.out.println(test3);
 
 
     }

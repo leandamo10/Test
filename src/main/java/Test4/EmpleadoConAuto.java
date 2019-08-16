@@ -1,10 +1,9 @@
 package Test4;
 
 
-public class EmpleadoConAuto extends Empleado {
+public abstract class EmpleadoConAuto extends Empleado {
 
     private Coche coche;
-    public Coche cocheNull = new Coche("no ", "tiene ", "coche");
 
     public EmpleadoConAuto() {
     }
@@ -24,7 +23,6 @@ public class EmpleadoConAuto extends Empleado {
     public void setCoche(Coche coche) {
         this.coche = coche;
     }
-
 
     public Coche cambiarCoche(Coche coche1) {
         coche = coche1;

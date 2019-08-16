@@ -6,8 +6,8 @@ import java.util.ArrayList;
 public class JefeDeZona extends EmpleadoConAuto {
 
     private String despacho;
-    private Secretario secretario;
-    private ArrayList<Vendedor> listaVendedores = new ArrayList<Vendedor>();
+    private String secretario;
+    private ArrayList<String> listaVendedores = new ArrayList<String>();
 
     public JefeDeZona() {
     }
@@ -42,22 +42,18 @@ public class JefeDeZona extends EmpleadoConAuto {
         this.despacho = despacho;
     }
 
-    public Secretario getSecretario() {
+    public String getSecretario() {
         return secretario;
     }
 
-    public void setSecretario(Secretario secretario) {
-        secretario = secretario;
+    public void setSecretario(Empleado empleado) {
+        secretario = empleado.getNombre() + " " + getApellido();
         this.secretario = secretario;
     }
 
-    public void cambiarSecretario(Secretario secretario) {
-        secretario = secretario;
-        this.secretario = secretario;
-    }
 
     public void agregarVendedor(Vendedor vendedor) {
-        listaVendedores.add(vendedor);
+        listaVendedores.add(vendedor.getNombre() + " " + getApellido());
     }
 
     public void imprimirListaVendedores() {
